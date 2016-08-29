@@ -16,43 +16,43 @@ tag: Machine Learning
 
 일변수 가우스 분포(Univariate Gaussian Distribution)는 다음과 같다.
 
-$N(x|\mu,\sigma^2) \sim \frac {1} {\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(x - \mu)^2)$
+$$N(x|\mu,\sigma^2) \sim \frac {1} {\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(x - \mu)^2)$$
 
-이때 $\mu$는 평균(mean)이며 $\sigma^2$는 분산(variance)이다. 따라서 $\sigma$는 표준편차(standard deviation)이다
+이때 $$\mu$$는 평균(mean)이며 $$\sigma^2$$는 분산(variance)이다. 따라서 $$\sigma$$는 표준편차(standard deviation)이다
 
 ## Multivariate Gaussian Distribution
 
 다변수 가우스 분포(Multivariate Gaussian Distribution)는 다음과 같다
 
-$N(x|\mu,\sum) \sim \frac {1}{\sqrt{2\pi}^{D/2}}\frac{1}{|\sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^T\sum^{-1}(x - \mu))$
+$$N(x|\mu,\sum) \sim \frac {1}{\sqrt{2\pi}^{D/2}}\frac{1}{|\sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^T\sum^{-1}(x - \mu))$$
 
-이때 $\mu$는 평균(mean)이며  $\sum$는 공분산행렬(covariance matrix)이며 $D \times D$ 크기를 가진다
+이때 $$\mu$$는 평균(mean)이며  $$\sum$$는 공분산행렬(covariance matrix)이며 $$D \times D$$ 크기를 가진다
 
-$\sum^{-1}$은 정확도(Accuracy)라고 불리우기도 하며 $\Lambda$로 표기하기도 한다.
+$$\sum^{-1}$$은 정확도(Accuracy)라고 불리우기도 하며 $$\Lambda$$로 표기하기도 한다.
 
 ## Affine Property and Affine Transformation
 
 공분산 행렬은 아주 중요한 특징을 가지고 있는데 바로 대칭행렬이라는 점이다. 공분산의 정의를 이해하면 쉽게 파악할수 있다.
 
-따라서 $\sum u_i = \lambda_iu_i$를 만드는 고유값(Eigen value) $\lambda_i$와 고유 벡터(Eigen value) $u_i$가 존재한다.
+따라서 $$\sum u_i = \lambda_iu_i$$를 만드는 고유값(Eigen value) $$\lambda_i$$와 고유 벡터(Eigen value) $$u_i$$가 존재한다.
 
 그리고 이 고유값과 고유벡터들을 기저로 직교공간(Othonormal basis system)을 생성할수 있다.
 
-따라서 공분산행렬은 $\sum = \sum^D_{i=1}\lambda_iu_iu_i^T$로 표현될 수 있으며.
+따라서 공분산행렬은 $$\sum = \sum^D_{i=1}\lambda_iu_iu_i^T$$로 표현될 수 있으며.
 
-공분산행렬의 역행렬은 $\sum^{-1} = \sum^D_{i=1}\frac {1}{\lambda_i}u_iu_i^T$로 표현될 수 있다.
+공분산행렬의 역행렬은 $$\sum^{-1} = \sum^D_{i=1}\frac {1}{\lambda_i}u_iu_i^T$$로 표현될 수 있다.
 
-다변수 가우스분포를 잘 살펴보면 x값에 따른 분포는 $\Delta^2 = (x - \mu)^T\sum^{-1}(x - \mu)$ 에만 연관된다고 볼 수 있다.
+다변수 가우스분포를 잘 살펴보면 x값에 따른 분포는 $$\Delta^2 = (x - \mu)^T\sum^{-1}(x - \mu)$$ 에만 연관된다고 볼 수 있다.
 
-이를 위의 성질을 이용하여 다시 표현하면 $\Delta^2 = \frac {(x - \mu)^TUU^T(x - \mu)} {\lambda^{1/2} \lambda^{1/2}}$ 로 표기할 수 있다.
+이를 위의 성질을 이용하여 다시 표현하면 $$\Delta^2 = \frac {(x - \mu)^TUU^T(x - \mu)} {\lambda^{1/2} \lambda^{1/2}}$$ 로 표기할 수 있다.
 
-이때 $U = \{u_i\}_{i=1}^D$ 고유벡터를 기저로 삼는 행렬이다. 따라서 $UU^T = I$이다.
+이때 $$U = \{u_i\}_{i=1}^D$$ 고유벡터를 기저로 삼는 행렬이다. 따라서 $$UU^T = I$$이다.
 
-위의 $\Delta^2$은 좌우 대칭이어서 분리될 수 있음을 확인할 수 있고, $x$에 영향을 끼치는 요소가 $U,\lambda,\mu$라는 것을 파악할 수 있다.
+위의 $$\Delta^2$$은 좌우 대칭이어서 분리될 수 있음을 확인할 수 있고, $$x$$에 영향을 끼치는 요소가 $$U,\lambda,\mu$$라는 것을 파악할 수 있다.
 
-따라서 특정값을 따르는 정규 분포 $X$에 $U,\lambda,\mu$를 곱하거나 더할 때  기하학적으로 어떻게 가우스 분포에 영향을 끼치는지 코드를 통하여 살펴볼 것이다.
+따라서 특정값을 따르는 정규 분포 $$X$$에 $$U,\lambda,\mu$$를 곱하거나 더할 때  기하학적으로 어떻게 가우스 분포에 영향을 끼치는지 코드를 통하여 살펴볼 것이다.
 
-먼저 평균이 $(0,0)$이고 공분산이 $I$인 정규분포를 따르는 무작위 데이터 50개를 만든다. 이를 $X$라고 명명한다.
+먼저 평균이 $$(0,0)$$이고 공분산이 $$I$$인 정규분포를 따르는 무작위 데이터 50개를 만든다. 이를 $$X$$라고 명명한다.
 
 
 ```python
@@ -94,9 +94,9 @@ print np.cov(data1)
 ![png]({{ site.baseurl }}/images/Gaussian_Distribution/output_4_1.png)
 
 
-$X$에 $\lambda^{1/2}$를 곱해보자.
+$$X$$에 $$\lambda^{1/2}$$를 곱해보자.
 
-$\lambda^{1/2}X \sim N(X|0,\lambda)$  를 따르게 된다.
+$$\lambda^{1/2}X \sim N(X|0,\lambda)$$  를 따르게 된다.
 
 
 ```python
@@ -117,11 +117,11 @@ print np.cov(data2)
 ![png]({{ site.baseurl }}/images/Gaussian_Distribution/output_6_1.png)
 
 
-공분산이 각각 $\lambda$만큼 변한 것을 확인할 수 있다. 이를 Scaling이라고 한다.
+공분산이 각각 $$\lambda$$만큼 변한 것을 확인할 수 있다. 이를 Scaling이라고 한다.
 
-이제 $U$를 곱해보자. $U$를 곱하면 분포의 고유벡터가 바뀌어 회전하게 된다.
+이제 $$U$$를 곱해보자. $$U$$를 곱하면 분포의 고유벡터가 바뀌어 회전하게 된다.
 
-$U\lambda^{1/2}X \sim N(X|0,\sum)$  를 따르게 된다.
+$$U\lambda^{1/2}X \sim N(X|0,\sum)$$  를 따르게 된다.
 
 
 ```python
@@ -163,11 +163,11 @@ plt.axis([-10,10,-10,10])
 ![png]({{ site.baseurl }}/images/Gaussian_Distribution/output_8_2.png)
 
 
-분포가 $16.26^{\circ}$도 회전하였고, 고유벡터가 바뀐것을 확인할수 있다. 이를 Rotation이라고 한다.
+분포가 $$16.26^{\circ}$$도 회전하였고, 고유벡터가 바뀐것을 확인할수 있다. 이를 Rotation이라고 한다.
 
-이제 $\mu$를 더하여 평균값을 바꾸어 보자. 
+이제 $$\mu$$를 더하여 평균값을 바꾸어 보자. 
 
-$U\lambda^{1/2}X + \mu \sim N(X|\mu,\sum)$ 를 따르게 된다.
+$$U\lambda^{1/2}X + \mu \sim N(X|\mu,\sum)$$ 를 따르게 된다.
 
 
 ```python
@@ -194,7 +194,7 @@ plt.axis([-10,10,-10,10])
 ![png]({{ site.baseurl }}/images/Gaussian_Distribution/output_10_2.png)
 
 
-평균값이 $(2,2)$만큼 옮겨 져서 분포가 전체적으로 옮겨진것을 확인할 수 있다. 이를 Shift라고 한다
+평균값이 $$(2,2)$$만큼 옮겨 져서 분포가 전체적으로 옮겨진것을 확인할 수 있다. 이를 Shift라고 한다
 
 이러한 방법으로 특정한 평균과 공분산을 가진 다변수정규분포를 쉽게 만들어 낼수 있다.
 
