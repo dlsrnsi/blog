@@ -37,7 +37,7 @@ footer-links:
 disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+google_analytics: "UA-83307107-1"
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
@@ -62,6 +62,7 @@ version: v1.2.0
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
+  math_engine: math_jax
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
