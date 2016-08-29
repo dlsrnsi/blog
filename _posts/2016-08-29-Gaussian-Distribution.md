@@ -16,7 +16,7 @@ tag: Machine Learning
 
 일변수 가우스 분포(Univariate Gaussian Distribution)는 다음과 같다.
 
-$$N(x|\mu,\sigma^2) \sim \frac {1} {\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(x - \mu)^2)$$
+$$N(x\|\mu,\sigma^2) \sim \frac {1} {\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}(x - \mu)^2)$$
 
 이때 $$\mu$$는 평균(mean)이며 $$\sigma^2$$는 분산(variance)이다. 따라서 $$\sigma$$는 표준편차(standard deviation)이다
 
@@ -24,7 +24,7 @@ $$N(x|\mu,\sigma^2) \sim \frac {1} {\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2\sigma^2}
 
 다변수 가우스 분포(Multivariate Gaussian Distribution)는 다음과 같다
 
-$$N(x|\mu,\sum) \sim \frac {1}{\sqrt{2\pi}^{D/2}}\frac{1}{|\sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^T\sum^{-1}(x - \mu))$$
+$$N(x\|\mu,\sum) \sim \frac {1}{\sqrt{2\pi}^{D/2}}\frac{1}{\|\sum\|^{1/2}}exp(-\frac{1}{2}(x - \mu)^T\sum^{-1}(x - \mu))$$
 
 이때 $$\mu$$는 평균(mean)이며  $$\sum$$는 공분산행렬(covariance matrix)이며 $$D \times D$$ 크기를 가진다
 
@@ -96,7 +96,7 @@ print np.cov(data1)
 
 $$X$$에 $$\lambda^{1/2}$$를 곱해보자.
 
-$$\lambda^{1/2}X \sim N(X|0,\lambda)$$  를 따르게 된다.
+$$\lambda^{1/2}X \sim N(X\|0,\lambda)$$  를 따르게 된다.
 
 
 ```python
@@ -121,7 +121,7 @@ print np.cov(data2)
 
 이제 $$U$$를 곱해보자. $$U$$를 곱하면 분포의 고유벡터가 바뀌어 회전하게 된다.
 
-$$U\lambda^{1/2}X \sim N(X|0,\sum)$$  를 따르게 된다.
+$$U\lambda^{1/2}X \sim N(X\|0,\sum)$$  를 따르게 된다.
 
 
 ```python
@@ -167,7 +167,7 @@ plt.axis([-10,10,-10,10])
 
 이제 $$\mu$$를 더하여 평균값을 바꾸어 보자. 
 
-$$U\lambda^{1/2}X + \mu \sim N(X|\mu,\sum)$$ 를 따르게 된다.
+$$U\lambda^{1/2}X + \mu \sim N(X\|\mu,\sum)$$ 를 따르게 된다.
 
 
 ```python

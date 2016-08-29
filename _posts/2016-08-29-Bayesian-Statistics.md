@@ -8,7 +8,7 @@ tag: Machine Learning
 
 베이즈 정리는 다음과 같다
 
-$$p(H|E) = \frac {p(E|H)p(H)} {p(E)}$$
+$$p(H\|E) = \frac {p(E\|H)p(H)} {p(E)}$$
 
 여기서 $$H$$는 가설(Hypothesis)이며 $$E$$는 증거(Evidence)이다 경우에 따라서 $$D$$ (Data)라고 표현하기도 한다.
 
@@ -16,7 +16,7 @@ $$p(H|E) = \frac {p(E|H)p(H)} {p(E)}$$
 
 또한, 베이즈 정리의 오른쪽 항의 분모를 살펴보면
 
-$$p(E) = \sum_{i=1}^n p(E,H_i) = \sum_{i=1}^n p(E|H_i)p(H_i)$$
+$$p(E) = \sum_{i=1}^n p(E,H_i) = \sum_{i=1}^n p(E\|H_i)p(H_i)$$
 
 즉 $$p(E)$$는 각각의 가설일때 $$E$$일 확률을 더한것과 마찬가지이다. 
 
@@ -24,9 +24,9 @@ $$p(E) = \sum_{i=1}^n p(E,H_i) = \sum_{i=1}^n p(E|H_i)p(H_i)$$
 
 이러한 추정을 베이지언 추정(Bayesian Estimation)이라고 부른다.
 
-베이지언 추정 $$p(H|E)$$는 오른쪽 식의 분자에 비례한다. 이를,
+베이지언 추정 $$p(H\|E)$$는 오른쪽 식의 분자에 비례한다. 이를,
 
-$$p(H|E) \propto p(E|H)p(H)$$ 라고 표현할 수 있다.
+$$p(H\|E) \propto p(E\|H)p(H)$$ 라고 표현할 수 있다.
 
 또한 각각의 확률을 함수형태로 보았을 때,
 
@@ -59,17 +59,17 @@ $$likelihood-funtion$$ 이 최대화 될 때는, 주어진 데이터 $$X$$에 �
 
 일변수 정규분포(Univariate Gaussian)은 분산이 1이고 평균이 $$\theta$$일때, 다음과 같은 식을 따른다.
 
-$$N(x|\theta,1) = \frac {1} {\sqrt{2\pi}^{1/2}} exp(-\frac {1} {2}(x - \theta)^2)$$
+$$N(x\|\theta,1) = \frac {1} {\sqrt{2\pi}^{1/2}} exp(-\frac {1} {2}(x - \theta)^2)$$
 
 $$N$$개의 데이터가 존재할때 확률은 다음과 같이 변한다
 
-$$N(x|\theta,1) = \frac {1} {\sqrt{2\pi}^{1/2}} \prod^N_{i=1}exp(-\frac {1} {2}(x_i - \theta)^2)$$
+$$N(x\|\theta,1) = \frac {1} {\sqrt{2\pi}^{1/2}} \prod^N_{i=1}exp(-\frac {1} {2}(x_i - \theta)^2)$$
 
-$$\prod$$를 exp안에 넣으면 $$\sum$$으로 변한다. $$N(x|\theta,1) = \frac {1} {\sqrt{2\pi}^{1/2}} exp(-\frac {1} {2}\sum^N_{i=1}(x_i - \theta)^2)$$
+$$\prod$$를 exp안에 넣으면 $$\sum$$으로 변한다. $$N(x\|\theta,1) = \frac {1} {\sqrt{2\pi}^{1/2}} exp(-\frac {1} {2}\sum^N_{i=1}(x_i - \theta)^2)$$
 
 양변에 자연로그를 취해서 $$X$$값을 최대화 시키는 $$\theta$$값을 찾아보자. 로그를 취하더라도 최대값이 되는 지점은 변하지 않는다.
 
-$$ln(N(X|\theta)) = -\frac {1} {2} \sum^N_{i=1}(x_i - \theta)^2$$
+$$ln(N(X\|\theta)) = -\frac {1} {2} \sum^N_{i=1}(x_i - \theta)^2$$
 
 x_i에 대한 함수는 이차항이 -인 이차함수 이므로 미분하여 기울기가 0일때의 값이 최대값임을 확인할 수 있다.
 
