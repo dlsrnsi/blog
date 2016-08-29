@@ -4,8 +4,6 @@ title: Gaussian-Distribution
 tag: Machine Learning
 ---
 
-# Gaussian Distribution
-
 정규분포는 단연 통계에서 가장 중요한 분포이다.
 
 정규분포는 가우스(Johann Carl Friedrich Gauss)가 소행성 세레스를 찾을 때 발견했다.
