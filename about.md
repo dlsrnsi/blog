@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Ingoo lee, master's-dgree student in bioinformatics at the GIST
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[dlsrnsladlek@naver.com](mailto:dlsrnsladlek@naver.com)
+[dlsrnsladlek@gist.ac.kr](mailto:dlsrnsladlek@gist.ac.kr)

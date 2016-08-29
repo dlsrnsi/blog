@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Polynomial Regression
-tag: -Machine Learning
+tag: Machine Learning
 ---
 
 선형회귀로는 풀 수없는 문제들이 존재한다.

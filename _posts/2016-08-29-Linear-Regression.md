@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linear Regression
-tag: -Machine Learning
+tag: Machine Learning
 ---
 
 
@@ -164,8 +164,3 @@ plt.show()
 
 ![png]({{ site.baseurl }}/images/Linear_Regression/output_11_0.png)
 
-
-
-```python
-
-```
