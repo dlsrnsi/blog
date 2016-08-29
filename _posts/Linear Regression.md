@@ -1,5 +1,8 @@
+---
+layout: post
+title: Linear Regression
+---
 
-# Linear Regression
 
 선형 회귀(Regression)은 주어진 데이터를 가장 잘 나타내는 선형방정식을 나타내기 위하여 사용한다.
 
