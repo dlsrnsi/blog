@@ -59,11 +59,10 @@ permalink: /:title/
 version: v1.2.0
 
 # Jekyll 3 now only supports Kramdown for Markdown
-markdown: KramdownPygments
 kramdown:
-  default_lang: php
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
+  math_engine: math_jax
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
