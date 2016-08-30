@@ -62,10 +62,6 @@ import matplotlib.pyplot as plt
 import seaborn
 ```
 
-    c:\python27\lib\site-packages\IPython\html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
-      "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
-    
-
 
 ```python
 I = np.identity(2, dtype=np.float32)
@@ -145,20 +141,12 @@ plt.axis([-10,10,-10,10])
     U : 
     [[ 0.96 -0.28]
      [ 0.28  0.96]]
-    U^TU
+    U^TU :
     [[ 1.  0.]
      [ 0.  1.]]
     mean : 
     [-0.05409246  0.30550387]
-    
-
-
-
-
-    [-10, 10, -10, 10]
-
-
-
+ 
 
 ![png]({{ site.baseurl }}/images/Gaussian_Distribution/output_8_2.png)
 
@@ -181,13 +169,6 @@ plt.axis([-10,10,-10,10])
 
     mean :
     [ 1.94590754  2.30550387]
-    
-
-
-
-
-    [-10, 10, -10, 10]
-
 
 
 
