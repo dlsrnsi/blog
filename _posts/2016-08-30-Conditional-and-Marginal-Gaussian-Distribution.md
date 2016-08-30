@@ -1,5 +1,8 @@
-
-# Conditional and Marginal Gaussian Distribution
+---
+layout: post
+title: Conditional and Marginal Distribution
+tag: Machine Learning
+---
 
 ## Conditional Gaussian Distribution
 
