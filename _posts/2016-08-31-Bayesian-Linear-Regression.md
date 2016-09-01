@@ -6,37 +6,37 @@ tag: Machine Learning
 
 [Linear Regression](https://dlsrnsi.github.io/blog/Linear-Regression/) 에서의 추정 역시 베이지언스럽게 할 수 있다.
 
-구하고자 하는 weight $w$의 prior가 정규분포를 따른다고 가정하자
+구하고자 하는 weight $$w$$의 prior가 정규분포를 따른다고 가정하자
 
-$p(w) = N(w|m_0, S_0)$
+$$p(w) = N(w\|m_0, S_0)$$
 
 마찬가지로, liklihood-function은 다음과 같다.
 
-$p(t|w) = \prod^N_{n=1}N(t_n|w^T\phi(X_n), \beta^{-1})$
+$$p(t\|w) = \prod^N_{n=1}N(t_n\|w^T\phi(X_n), \beta^{-1})$$
 
 따라서 posteior는 다음과 같다
 
-$p(w|t) \propto p(t|w)p(w) \propto \prod^N_{n=1}N(t_n|w^T\phi(X_n), \beta^{-1})N(w|m_0, S_0)$
+$$p(w\|t) \propto p(t\|w)p(w) \propto \prod^N_{n=1}N(t_n\|w^T\phi(X_n), \beta^{-1})N(w\|m_0, S_0)$$
 
 w는 Exp안의 내용에만 비례하므로
 
-$\propto \beta(t - \phi(X_n)w)^T(t - \phi(X_n)w) + S_0^{-1}(m_0^Tm_0 - 2w^Tm_0 + w^Tw)$
+$$\propto \beta(t - \phi(X_n)w)^T(t - \phi(X_n)w) + S_0^{-1}(m_0^Tm_0 - 2w^Tm_0 + w^Tw)$$
 
-$= \beta t^Tt - 2w^T(\beta\phi(X_n)^T + w^T\phi(X_n)^T\phi(X_n)w) + S_0^{-1}(m_0^Tm_0 - 2w^Tm_0 + w^Tw)$
+$$= \beta t^Tt - 2w^T(\beta\phi(X_n)^T + w^T\phi(X_n)^T\phi(X_n)w) + S_0^{-1}(m_0^Tm_0 - 2w^Tm_0 + w^Tw)$$
 
-$w$에 대하여 정리하면
+$$w$$에 대하여 정리하면
 
-$w^T(S_0^{-1} + \beta\phi(X_n)^T\phi(X_n))w - 2w^T(S_0^{-1}m_0 + \beta\phi(X_n)^Tt) + const$
+$$w^T(S_0^{-1} + \beta\phi(X_n)^T\phi(X_n))w - 2w^T(S_0^{-1}m_0 + \beta\phi(X_n)^Tt) + const$$
 
 따라서 분산의 역(accuracy) 와 평균은 다음과 같음을 알 수 있다.
 
-$S_N^{-1} = (S_0^{-1} + (S_0 + \beta\phi(X_n)^T\phi(X_n))$
+$$S_N^{-1} = (S_0^{-1} + (S_0 + \beta\phi(X_n)^T\phi(X_n))$$
 
-$m_N = S_N(S_0^{-1}m_0 + \beta\phi(X_n)^Tt)$
+$$m_N = S_N(S_0^{-1}m_0 + \beta\phi(X_n)^Tt)$$
 
-이 때, prior가 $N(0, S_0)$를 따른다고 하면
+이 때, prior가 $$N(0, S_0)$$를 따른다고 하면
 
-$S_N^{-1} = S_0 + \beta\phi(X_n)^T\phi(X_n)$,   $m_N = \beta S_N\phi(X_n)^Tt$
+$$S_N^{-1} = S_0 + \beta\phi(X_n)^T\phi(X_n)$$,   $$m_N = \beta S_N\phi(X_n)^Tt$$
 
 
 ```python
@@ -72,14 +72,14 @@ ax.scatter(x, y);plt.show()
 ```
 
 
-![png]({{ site.baseurl }}/images/Bayesian_Linear_Regressionoutput_4_0.png)
+![png]({{ site.baseurl }}/images/Bayesian_Linear_Regression/output_4_0.png)
 
 
 linear regression(likelihood, 파란색)이 보다시피 기존함수(붉은색 선)과 차이가 꽤 나는 것을 확인할 수 있다.
 
 Baysian Linear Regression 결과를 보도록 하자.
 
-Prior의 $m_0 = (0,0)$으로 하고, $S_0=5$라고 한다.
+Prior의 $$m_0 = (0,0)$$으로 하고, $$S_0=5$$라고 한다.
 
 
 ```python
@@ -110,9 +110,9 @@ plt.plot(x, m_N[0] + x*m_N[1], color='blue'); original = plt.plot(x, 3*x + 2, co
 
 
 
-![png]({{ site.baseurl }}/images/Bayesian_Linear_Regressionoutput_8_1.png)
+![png]({{ site.baseurl }}/images/Bayesian_Linear_Regression/output_8_1.png)
 
 
-옅은 선으로 표시된 함수들은 가능한 베이지언 추정이다. 가능한 베이지언 추정$w_p$들의 평균값이 최종함수(파란색)으로 표현됨을 파악할 수 있다.
+옅은 선으로 표시된 함수들은 가능한 베이지언 추정이다. 가능한 베이지언 추정$$w_p$$들의 평균값이 최종함수(파란색)으로 표현됨을 파악할 수 있다.
 
 또한 likelihood function과는 달리 기존함수와 매우 비슷함을 확인할 수 있다.

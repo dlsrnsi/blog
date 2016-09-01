@@ -88,7 +88,7 @@ plt.show()
 
 ## Dirichlet distribution
 
-Dirichlet distribution은 [Beta distribution](http://www.iglee.net/study/39/)을 Multinomial distribution으로 확장시킨 것과 동일하다.
+Dirichlet distribution은 [Beta distribution](https://dlsrnsi.github.io/blog/Beta-Bernoulli-Model/)을 Multinomial distribution으로 확장시킨 것과 동일하다.
 
 파라미터 $${\mu_k}$$의 prior는
 
